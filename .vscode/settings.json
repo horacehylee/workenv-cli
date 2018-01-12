@@ -8,5 +8,6 @@
         "**/build": true,
         "**/lib": true,
         "coverage": true,
-    }
+    },
+    "jest.pathToJest": "yarn test --"
 }

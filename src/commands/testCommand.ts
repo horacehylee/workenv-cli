@@ -2,7 +2,7 @@ import { CommandModule } from "yargs";
 import { log, pretty } from "./index";
 
 export const TestCommand: CommandModule = {
-  command: "test",
+  command: "*",
   aliases: "t",
   describe: "Just for testing",
   builder: {

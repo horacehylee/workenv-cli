@@ -1,12 +1,14 @@
 {
   "programs": {
-    "telegram": {
+    "asclnkasd": {
+      "name": "telegram",
       "executable": "telegram.exe",
       "location": "C:\\..."
     }
   },
   "presets": {
-    "dev": {
+    "ckjnaskdm": {
+      "name": "dev",
       "programs": ["telegram"],
       "commands": [
         {

@@ -15,7 +15,7 @@ $ npm install -g workenv-cli
 With program path
 
 ```
-workenv program register "C:\\...\TelegramDesktop\Telegram.exe"
+workenv program register C:\\...\TelegramDesktop\Telegram.exe
 > What do you want to call the program? (telegram):
 ```
 
@@ -39,6 +39,12 @@ workenv program ls
 
 ```
 workenv program remove telegram
+```
+
+#### Run Program
+
+```
+workenv program telegram
 ```
 
 ### Preset Management
