@@ -1,0 +1,22 @@
+{
+  "programs": {
+    "telegram": {
+      "executable": "telegram.exe",
+      "location": "C:\\..."
+    }
+  },
+  "presets": {
+    "dev": {
+      "programs": ["telegram"],
+      "commands": [
+        {
+          "setup": "docker-machine start",
+          "teardown": "docker-machine stop"
+        },
+        {
+          "setup": "xxx"
+        }
+      ]
+    }
+  }
+}
