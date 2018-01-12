@@ -1,5 +1,9 @@
 # workenv-cli
 
+[![npm version](https://badge.fury.io/js/workenv-cli.svg)](https://badge.fury.io/js/workenv-cli)
+[![CircleCI](https://circleci.com/gh/horacehylee/workenv-cli.svg?style=svg)](https://circleci.com/gh/horacehylee/workenv-cli)
+[![Coverage Status](https://coveralls.io/repos/github/horacehylee/workenv-cli/badge.svg?branch=master)](https://coveralls.io/github/horacehylee/workenv-cli?branch=master)
+
 ## Installation
 
 ```
