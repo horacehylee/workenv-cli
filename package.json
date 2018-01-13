@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Cli tool for managing working environment programs",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest",
     "coverage:publish": "shx cat ./coverage/lcov.info | coveralls",
     "start": "npm run build && node ./build/main.js",
     "build": "backpack build"
@@ -82,6 +82,7 @@
     "typescript": "2.6.2"
   },
   "jest": {
+    "collectCoverage": true,
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },

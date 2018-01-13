@@ -1,4 +1,8 @@
-import { getAllPrograms, getProgramsByName } from "./daos/program.dao";
+import {
+  deletePrograms,
+  getAllPrograms,
+  getProgramsByName
+} from "./daos/program.dao";
 import { Program } from "./models/program.model";
 
 import { isEmpty } from "lodash";
@@ -41,4 +45,7 @@ export const listProgram = async (): Promise<Program[]> => {
   return getAllPrograms();
 };
 
-export const removeProgram = async (name: string) => {};
+export const removeProgram = async (name: string) => {
+  const [program] = await getProgramsByName([name]);
+  await deletePrograms(program);
+};

@@ -1,6 +1,7 @@
-import { connect } from "../../../db";
+import { connect, resetDb } from "../../../db";
 import { Program } from "../models/program.model";
 import * as programFunc from "./../programs";
+import { testPrograms } from "./data/program.data.spec";
 
 describe("Program", () => {
   describe("Register program", () => {
@@ -19,13 +20,36 @@ describe("Program", () => {
       expect(program.location).toEqual("C:\\test");
     });
 
-    it.only("should be rejected for invalid program path", async () => {
+    it("should be rejected for invalid program path", async () => {
       await expect(
         programFunc.registerProgram({
           name: "test",
           programPath: "C:\\test\\test"
         })
       ).rejects.toEqual(new Error("programPath is invalid"));
+    });
+  });
+
+  describe("Remove program", () => {
+    beforeAll(async () => {
+      await connect({ testing: true });
+    });
+
+    beforeEach(async () => {
+      await resetDb();
+      await Program.bulkCreate(testPrograms);
+    });
+
+    it("should remove program by name", async () => {
+      await programFunc.removeProgram("telegram");
+      const programs = await programFunc.listProgram();
+      expect(programs.length).toEqual(1);
+    });
+
+    it("should throw error if program of name does not exists", async () => {
+      await expect(programFunc.removeProgram("unknownProgram")).rejects.toEqual(
+        new Error("Programs(unknownProgram) do not exist")
+      );
     });
   });
 });

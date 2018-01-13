@@ -9,5 +9,5 @@
         "**/lib": true,
         "coverage": true,
     },
-    "jest.pathToJest": "yarn test --"
+    "jest.pathToJest": "node_modules/.bin/jest"
 }

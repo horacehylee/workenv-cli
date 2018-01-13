@@ -27,3 +27,8 @@ export const getProgramsByName = async (
   }
   return programs;
 };
+
+export const deletePrograms = async (...programs: Program[]) => {
+  const deletePromises = programs.map(program => program.destroy());
+  await Promise.all(deletePromises);
+};
