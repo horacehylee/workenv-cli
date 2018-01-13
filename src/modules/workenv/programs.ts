@@ -23,7 +23,6 @@ export const registerProgram = async (
   if (!programPathRegex.test(programPath)) {
     throw new Error("programPath is invalid");
   }
-  console.log('programPath', programPath, basename(programPath), dirname(programPath))
   const program = new Program({
     name,
     executable: basename(programPath),

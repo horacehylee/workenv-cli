@@ -3,6 +3,8 @@ import { Program } from "../models/program.model";
 import * as programFunc from "./../programs";
 import { testPrograms } from "./data/program.data.spec";
 
+import { join } from "path";
+
 describe("Program", () => {
   describe("Register program", () => {
     beforeAll(async () => {
@@ -12,19 +14,19 @@ describe("Program", () => {
     it("should insert program", async () => {
       const program = await programFunc.registerProgram({
         name: "test",
-        programPath: "C:\\test\\test.exe"
+        programPath: join("C:", "test", "test.exe")
       });
       expect(program).not.toBeNull();
       expect(program.name).toEqual("test");
       expect(program.executable).toEqual("test.exe");
-      expect(program.location).toEqual("C:\\test");
+      expect(program.location).toEqual(join("C:","test"));
     });
 
     it("should be rejected for invalid program path", async () => {
       await expect(
         programFunc.registerProgram({
           name: "test",
-          programPath: "C:\\test\\test"
+          programPath: join("C:", "test", "test")
         })
       ).rejects.toEqual(new Error("programPath is invalid"));
     });

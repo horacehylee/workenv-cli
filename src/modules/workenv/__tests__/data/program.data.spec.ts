@@ -1,15 +1,24 @@
 import { Program } from "../../models/program.model";
 
+import { join } from "path";
+
 export const testPrograms = [
   {
     executable: "telegram.exe",
-    location: "C:\\Users\\xxx\\AppData\\Roaming\\Telegram Desktop",
+    location: join(
+      "C:",
+      "Users",
+      "xxx",
+      "AppData",
+      "Roaming",
+      "Telegram Desktop"
+    ),
     name: "telegram"
   },
   {
     name: "trello",
     executable: "Trello.exe",
-    location: "C:\\Program Files\\WindowsApps\\xxx\\app"
+    location: join("C:", "Program Files", "WindowsApps", "xxx", "app")
   }
 ];
 
