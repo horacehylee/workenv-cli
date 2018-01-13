@@ -16,14 +16,14 @@ $ npm install -g workenv-cli
 
 #### Register Program
 
-With program path
+##### With program path
 
 ```
 workenv program register C:\\...\TelegramDesktop\Telegram.exe
 > What do you want to call the program? (telegram):
 ```
 
-Without program path
+##### Without program path
 
 ```
 workenv program register
@@ -84,7 +84,7 @@ workenv ls
 
 ### Preset Usage
 
-Start preset
+#### Start preset
 
 It will start all the programs enabled for the preset. If the program is already opened, it will be ignored.
 
@@ -92,7 +92,7 @@ It will start all the programs enabled for the preset. If the program is already
 workenv <preset_name>
 ```
 
-Exit preset
+#### Exit preset
 
 It will close all programs listed for the preset.
 
