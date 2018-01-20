@@ -33,6 +33,16 @@ export const runProgram = async (name: string) => {
   }
 };
 
+export const killProgram = async (name: string) => {
+  const [program] = await getProgramsByName([name]);
+  const processName = program.executable;
+  const running = await ps.isProcessRunning(processName);
+
+  if (running) {
+    await ps.killProcess(processName);
+  }
+};
+
 export const listPrograms = async (): Promise<Program[]> => {
   return getAllPrograms();
 };

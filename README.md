@@ -76,9 +76,15 @@ workenv view <preset_name>
 #### List Presets
 
 ```
-workenv
 workenv list
 workenv ls
+```
+
+#### Remove Preset
+
+```
+workenv remove <preset_name>
+workenv rm <preset_name>
 ```
 
 ### Preset Usage
@@ -88,7 +94,9 @@ workenv ls
 It will start all the programs enabled for the preset. If the program is already opened, it will be ignored.
 
 ```
-workenv <preset_name>
+workenv
+workenv start <preset_name>
+workenv <preset_name> ...<more_preset_names>
 ```
 
 #### Exit preset

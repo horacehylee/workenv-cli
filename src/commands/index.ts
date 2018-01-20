@@ -1,14 +1,15 @@
 import { Argv } from "yargs";
 import { connect } from "../db";
 
+import { PresetCommand } from "./preset";
 import { ProgramCommand } from "./program";
-import { TestCommand } from "./testCommand";
 
 export const registerCommands = (argv: Argv) => {
   (async () => {
     await connect();
   })();
   argv.command(ProgramCommand);
+  argv.command(PresetCommand);
   return argv;
 };
 

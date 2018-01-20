@@ -8,7 +8,6 @@ import { RunCommand } from "./program/run";
 
 export const ProgramCommand: CommandModule = {
   command: "program",
-  aliases: "p",
   describe: "Programs",
   builder: yargs => {
     yargs.command(AddCommand);
