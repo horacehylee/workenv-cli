@@ -8,9 +8,16 @@ install:
   # install modules
   - yarn install
 
+build_script:
+  - yarn build
+
 # Post-install test scripts.
 test_script:
   # Output useful info for debugging.
   - node --version
   # run tests
   - yarn test
+
+cache:
+ - node_modules
+ - "%LOCALAPPDATA%/Yarn"
