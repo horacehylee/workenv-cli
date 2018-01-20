@@ -106,7 +106,7 @@ workenv rm <preset_name>
 It will start all the programs enabled for the preset. If the program is already opened, it will be ignored.
 
 ```
-workenv
+workenv <preset_name>
 workenv start <preset_name>
 workenv <preset_name> ...<more_preset_names>
 ```
