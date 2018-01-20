@@ -38,16 +38,16 @@ workenv program list
 workenv program ls
 ```
 
+#### Run Program
+
+```
+workenv program run telegram
+```
+
 #### Remove Program
 
 ```
 workenv program remove telegram
-```
-
-#### Run Program
-
-```
-workenv program telegram
 ```
 
 ### Preset Management

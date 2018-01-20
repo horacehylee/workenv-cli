@@ -1,13 +1,14 @@
 import { CommandModule } from "yargs";
 import { log, pretty } from "./../index";
 
+import { runProgram } from "../../modules/workenv/programs";
+
 export const RunCommand: CommandModule = {
-  command: "run",
+  command: "run [name]",
   describe: "Run a program",
   builder: {},
   handler: async argv => {
-    log("Just for testing");
-    log(`Here are the argv`);
-    log(`${pretty(argv)}`);
+    const { name } = argv;
+    await runProgram(name);
   }
 };
