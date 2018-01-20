@@ -1,6 +1,7 @@
 # workenv-cli
 
 [![npm version](https://badge.fury.io/js/workenv-cli.svg)](https://badge.fury.io/js/workenv-cli)
+[![Build status](https://ci.appveyor.com/api/projects/status/2uhjbnedwdiuwpb9?svg=true)](https://ci.appveyor.com/project/horacehylee/workenv-cli)
 [![Coverage Status](https://coveralls.io/repos/github/horacehylee/workenv-cli/badge.svg?branch=master&service=github)](https://coveralls.io/github/horacehylee/workenv-cli?branch=master&service=github)
 
 ## Installation
