@@ -11,8 +11,7 @@ export const StartCommand: CommandModule = {
   builder: {},
   handler: async argv => {
     const { names }: { names: string[] } = argv;
-
-    if (!names) {
+    if (!names || isEmpty(names)) {
       throw new Error("No preset name is inputted");
     }
 
