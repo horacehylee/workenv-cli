@@ -1,6 +1,6 @@
 {
   "name": "workenv-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Cli tool for managing working environment programs",
   "scripts": {
     "test": "jest",
@@ -26,6 +26,7 @@
     "class-transformer": "0.1.8",
     "cli-table2": "0.2.0",
     "date-fns": "1.29.0",
+    "delay": "^2.0.0",
     "dotenv": "4.0.0",
     "fkill": "^5.2.0",
     "inquirer": "4.0.1",
@@ -65,7 +66,6 @@
     "chai-shallow-deep-equal": "1.4.6",
     "chai-string": "1.4.0",
     "coveralls": "^3.0.0",
-    "delay": "^2.0.0",
     "husky": "^0.14.3",
     "jest": "^22.0.6",
     "lodash-ts-imports-loader": "1.1.2",
