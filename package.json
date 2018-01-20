@@ -7,7 +7,7 @@
     "coverage:publish": "shx cat ./coverage/lcov.info | coveralls",
     "start": "npm run build && node ./build/main.js",
     "build": "backpack build",
-    "precommit": "yarn test"
+    "precommit": "yarn test && yarn coverage:publish"
   },
   "bin": {
     "workenv": "./build/main.js"
