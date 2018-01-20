@@ -1,6 +1,6 @@
 {
   "name": "workenv-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cli tool for managing working environment programs",
   "scripts": {
     "test": "jest",
