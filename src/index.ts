@@ -14,9 +14,18 @@ for (let i = 0; i <= INDEX_MAX; i++) {
 }
 
 import * as yargs from "yargs";
-import { registerCommands } from "./commands";
+import { log, registerCommands } from "./commands";
 
 const argv = registerCommands(yargs);
 const args = argv
   .demandCommand(1, "You need at least one command before moving on")
   .help().argv;
+
+import chalk from "chalk";
+
+process.on("unhandledRejection", err => {
+  const cmd = process.argv.slice(2).join(" ");
+  log(chalk.red(`${scriptName} > Failed to execute "${cmd}"`));
+  log(chalk.red(err.toString()));
+  process.exit(1);
+});

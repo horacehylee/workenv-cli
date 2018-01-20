@@ -4,10 +4,9 @@ import { getDb } from "./../../../db";
 import { difference, isEmpty, isEqual, pick } from "lodash";
 import { basename, dirname } from "path";
 import { toClassArray } from "../../class-transformer-util/index";
+import { isExecutablePath } from "../fns/isExecutable";
 
 const programKey = "programs";
-const programPathRegex = /(\.exe)$/i;
-
 
 const existsProgram = async (name: string): Promise<boolean> => {
   const db = getDb();
@@ -31,7 +30,7 @@ export const addProgram = async (
     throw new Error(`Program(${name}) already exists`);
   }
 
-  if (!programPathRegex.test(programPath)) {
+  if (!isExecutablePath(programPath)) {
     throw new Error("programPath is invalid");
   }
 
@@ -55,6 +54,9 @@ export const getAllPrograms = async (): Promise<Program[]> => {
   const db = getDb();
   const programObjs = db.get(programKey).value();
   const programs = await toClassArray(Program)(programObjs);
+  if (!programs || isEmpty(programs)) {
+    return [];
+  }
   return programs;
 };
 

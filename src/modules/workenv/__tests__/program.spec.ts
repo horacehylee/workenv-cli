@@ -37,7 +37,7 @@ describe("Program", () => {
 
     it("should remove program by name", async () => {
       await programFunc.removeProgram("telegram");
-      const programs = await programFunc.listProgram();
+      const programs = await programFunc.listPrograms();
       expect(programs.length).toEqual(1);
     });
 

@@ -13,19 +13,19 @@ $ npm install -g workenv-cli
 
 ### Programs
 
-#### Register Program
+#### Add Program
 
 ##### With program path
 
 ```
-workenv program register C:\\...\TelegramDesktop\Telegram.exe
+workenv program add C:\\...\TelegramDesktop\Telegram.exe
 > What do you want to call the program? (telegram):
 ```
 
 ##### Without program path
 
 ```
-workenv program register
+workenv program add
 > What do you want to call the program? :
 > What is the program path?:
 ```

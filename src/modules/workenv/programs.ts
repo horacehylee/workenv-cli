@@ -33,7 +33,7 @@ export const runProgram = async (name: string) => {
   }
 };
 
-export const listProgram = async (): Promise<Program[]> => {
+export const listPrograms = async (): Promise<Program[]> => {
   return getAllPrograms();
 };
 
