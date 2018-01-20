@@ -5,7 +5,7 @@ import { log, pretty } from "./../index";
 import { addPreset } from "../../modules/workenv/preset-mgmt";
 
 export const AddCommand: CommandModule = {
-  command: "add [name]",
+  command: "add <name>",
   describe: "Add a preset",
   builder: {},
   handler: async argv => {

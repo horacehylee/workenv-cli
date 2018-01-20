@@ -8,7 +8,7 @@ import { getPresetsByName, updatePreset } from "../../modules/workenv/daos/prese
 import { getAllPrograms } from "../../modules/workenv/daos/program.dao";
 
 export const EditCommaand: CommandModule = {
-  command: "edit [name]",
+  command: "edit <name>",
   describe: "Edit preset",
   builder: {},
   handler: async argv => {

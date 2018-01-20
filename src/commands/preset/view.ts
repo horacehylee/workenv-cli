@@ -4,7 +4,7 @@ import { log, logPretty } from "./../index";
 import { viewPreset } from "../../modules/workenv/preset-mgmt";
 
 export const ViewCommand: CommandModule = {
-  command: "view [name]",
+  command: "view <name>",
   aliases: "v",
   describe: "View preset",
   builder: {},

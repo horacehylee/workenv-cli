@@ -6,7 +6,7 @@ import { getPresetsByName } from "../../modules/workenv/daos/preset.dao";
 import { killProgram } from "../../modules/workenv/programs";
 
 export const ExitCommand: CommandModule = {
-  command: "exit [name]",
+  command: "exit <name>",
   describe: "Close all preset programs",
   builder: {},
   handler: async argv => {

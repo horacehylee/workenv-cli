@@ -5,7 +5,7 @@ import { log, logPretty } from "./../index";
 import { removePreset } from "../../modules/workenv/preset-mgmt";
 
 export const RemoveCommand: CommandModule = {
-  command: "remove [name]",
+  command: "remove <name>",
   aliases: "rm",
   describe: "Remove preset",
   builder: {},
