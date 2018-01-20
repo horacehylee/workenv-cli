@@ -4,6 +4,8 @@ import * as programFunc from "./../programs";
 import { testPrograms } from "./data/program.data.spec";
 
 import { join } from "path";
+import { addProgram } from "../daos/program.dao";
+import { addTestPrograms } from "./dao/program.dao.spec";
 
 describe("Program", () => {
   describe("Register program", () => {
@@ -19,16 +21,7 @@ describe("Program", () => {
       expect(program).not.toBeNull();
       expect(program.name).toEqual("test");
       expect(program.executable).toEqual("test.exe");
-      expect(program.location).toEqual(join("C:","test"));
-    });
-
-    it("should be rejected for invalid program path", async () => {
-      await expect(
-        programFunc.registerProgram({
-          name: "test",
-          programPath: join("C:", "test", "test")
-        })
-      ).rejects.toEqual(new Error("programPath is invalid"));
+      expect(program.location).toEqual(join("C:", "test"));
     });
   });
 
@@ -39,7 +32,7 @@ describe("Program", () => {
 
     beforeEach(async () => {
       await resetDb();
-      await Program.bulkCreate(testPrograms);
+      await addTestPrograms();
     });
 
     it("should remove program by name", async () => {

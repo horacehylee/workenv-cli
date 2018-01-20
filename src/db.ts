@@ -1,48 +1,59 @@
-import { Sequelize } from "sequelize-typescript";
-import { Program } from "./modules/workenv/models/program.model";
-
+import { existsSync, mkdirSync } from "fs";
 import { homedir } from "os";
 import { join } from "path";
 
-let _sequelize: Sequelize;
+import * as low from "lowdb";
+import * as FileSync from "lowdb/adapters/FileSync";
+import * as Memory from "lowdb/adapters/Memory";
+
+let db: low.Lowdb<
+  {} & {
+    readonly "@@reference"?: {
+      readonly "@@reference": {};
+    };
+  },
+  low.AdapterSync<any>
+>;
+
+const dataDirectoryPath = join(homedir(), "workenv");
+const dataFileName = "workenv.json";
+const dataFilePath = join(dataDirectoryPath, dataFileName);
 
 export interface IConnectOptions {
   testing?: boolean;
 }
 
 export const connect = async (options?: IConnectOptions): Promise<void> => {
+  if (!options) {
+    options = {};
+  }
   const { testing } = options;
 
-  let storagePath = "";
+  let adapter: low.AdapterSync<any>;
   if (testing) {
-    storagePath = ":memory:";
+    adapter = new Memory(dataFilePath);
   } else {
-    storagePath = join(homedir(), "workenv", "workenv.sqlite");
+    if (!existsSync(dataDirectoryPath)) {
+      mkdirSync(dataDirectoryPath);
+    }
+    adapter = new FileSync(dataFilePath);
   }
+  db = low(adapter);
 
-  const sequelize = new Sequelize({
-    database: "workenv_db",
-    dialect: "sqlite",
-    username: "root",
-    password: "",
-    operatorsAliases: Sequelize.Op,
-    storage: storagePath,
-    logging: false
-  } as any);
-
-  sequelize.addModels([Program]);
-  // sequelize.addModels([__dirname + "/**/*.model.ts"]);
-
-  let syncOptions = {};
   if (testing) {
-    syncOptions = {
-      force: true
-    };
+    await resetDb();
   }
-  await sequelize.sync(syncOptions);
-  _sequelize = sequelize;
+};
+
+export const getDb = () => {
+  if (!db) {
+    throw new Error(
+      "database is not initialized, please call connect() first!"
+    );
+  }
+  return db;
 };
 
 export const resetDb = async () => {
-  await _sequelize.sync({ force: true });
+  db.setState({}).write();
 };

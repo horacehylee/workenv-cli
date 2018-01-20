@@ -1,4 +1,5 @@
 import {
+  addProgram,
   deletePrograms,
   getAllPrograms,
   getProgramsByName
@@ -6,10 +7,8 @@ import {
 import { Program } from "./models/program.model";
 
 import { isEmpty } from "lodash";
-import { basename, dirname, join } from "path";
+import { join } from "path";
 import * as ps from "./../ps/ps";
-
-const programPathRegex = /(\.exe)$/i;
 
 export interface IRegisterProgramParam {
   name: string;
@@ -20,15 +19,8 @@ export const registerProgram = async (
   param: IRegisterProgramParam
 ): Promise<Program> => {
   const { name, programPath } = param;
-  if (!programPathRegex.test(programPath)) {
-    throw new Error("programPath is invalid");
-  }
-  const program = new Program({
-    name,
-    executable: basename(programPath),
-    location: dirname(programPath)
-  });
-  return await program.save();
+  const program = await addProgram(name, programPath);
+  return program;
 };
 
 export const runProgram = async (name: string) => {
