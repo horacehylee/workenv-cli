@@ -5,8 +5,14 @@
 
 ## Installation
 
+NPM
 ```
 $ npm install -g workenv-cli
+```
+
+Yarn
+```
+$ yarn global add workenv-cli
 ```
 
 ## Usage
