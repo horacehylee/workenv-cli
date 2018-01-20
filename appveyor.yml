@@ -1,9 +1,6 @@
 environment:
   nodejs_version: "8.8.1"
 
-cache:
- - "%LOCALAPPDATA%\\Yarn"
-
 # Install scripts. (runs after repo cloning)
 install:
   # Get the latest stable version of Node.js or io.js
@@ -13,5 +10,7 @@ install:
 
 # Post-install test scripts.
 test_script:
+  # Output useful info for debugging.
+  - node --version
   # run tests
   - yarn test
