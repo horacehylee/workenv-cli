@@ -38,16 +38,22 @@ workenv program list
 workenv program ls
 ```
 
+#### Remove Program
+
+```
+workenv program remove telegram
+```
+
 #### Run Program
 
 ```
 workenv program run telegram
 ```
 
-#### Remove Program
+### Kill Program
 
 ```
-workenv program remove telegram
+workenv program kill telegram
 ```
 
 ### Preset Management
@@ -64,7 +70,7 @@ Can enable or disable program for the preset.
 
 ```
 workenv edit <preset_name>
-> Select the program to be included: 
+> Select the program to be included:
 ```
 
 #### View Preset

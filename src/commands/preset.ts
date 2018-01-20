@@ -25,6 +25,7 @@ export const PresetCommand: CommandModule = {
     return yargs;
   },
   handler: argv => {
+    argv.names = argv._;
     StartCommand.handler(argv);
   }
 };
