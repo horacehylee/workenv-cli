@@ -1,6 +1,6 @@
 {
   "name": "workenv-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Cli tool for managing working environment programs",
   "scripts": {
     "test": "jest",
@@ -8,7 +8,8 @@
     "start": "npm run build && node ./build/main.js",
     "build": "backpack build",
     "precommit": "yarn test",
-    "postcommit": "yarn coverage:publish"
+    "postcommit": "yarn coverage:publish",
+    "prepublish": "yarn build"
   },
   "bin": {
     "workenv": "./build/main.js"
