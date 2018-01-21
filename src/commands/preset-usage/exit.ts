@@ -19,7 +19,18 @@ export const ExitCommand: CommandModule = {
       return;
     }
 
-    const killProgramPromises = preset.programs.map(programName =>
+    let killProgramNames: string[] = preset.programs;
+    if (
+      preset.except &&
+      preset.except.teardown &&
+      !isEmpty(preset.except.teardown)
+    ) {
+      killProgramNames = killProgramNames.filter(
+        programName => !preset.except.teardown.includes(programName)
+      );
+    }
+
+    const killProgramPromises = killProgramNames.map(programName =>
       killProgram(programName)
     );
     await Promise.all(killProgramPromises);
