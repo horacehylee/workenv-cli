@@ -27,5 +27,6 @@ process.on("unhandledRejection", err => {
   const cmd = process.argv.slice(2).join(" ");
   log(chalk.red(`${scriptName} > Failed to execute "${cmd}"`));
   log(chalk.red(err.toString()));
+  // log(err);
   process.exit(1);
 });

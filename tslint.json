@@ -4,7 +4,8 @@
   "jsRules": {},
   "rules": {
     "member-access": false,
-    "no-var-requires": false
+    "no-var-requires": false,
+    "variable-name": false
   },
   "rulesDirectory": []
 }

@@ -1,10 +1,11 @@
 import { existsSync, mkdirSync } from "fs";
-import { homedir } from "os";
 import { join } from "path";
 
 import * as low from "lowdb";
 import * as FileSync from "lowdb/adapters/FileSync";
 import * as Memory from "lowdb/adapters/Memory";
+
+import { STORAGE_DIR, STORAGE_FILE_PATH } from "./config";
 
 let db: low.Lowdb<
   {} & {
@@ -15,9 +16,8 @@ let db: low.Lowdb<
   low.AdapterSync<any>
 >;
 
-const dataDirectoryPath = join(homedir(), "workenv");
-const dataFileName = "workenv.json";
-const dataFilePath = join(dataDirectoryPath, dataFileName);
+const dataDirectoryPath = STORAGE_DIR;
+const dataFilePath = STORAGE_FILE_PATH;
 
 export interface IConnectOptions {
   testing?: boolean;
