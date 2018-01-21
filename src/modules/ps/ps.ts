@@ -10,6 +10,13 @@ export const startProcess = async (exePath: string) => {
   process.exit();
 };
 
+export const startBulkProcesses = async (exePaths: string[]) => {
+  const opnPromises = exePaths.map(exePath => opn(exePath, { wait: false }));
+  await Promise.all(opnPromises);
+  await delay(1000);
+  process.exit();
+};
+
 export const isProcessRunning = async (
   processName: string
 ): Promise<boolean> => {

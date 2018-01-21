@@ -10,6 +10,8 @@ import { isEmpty } from "lodash";
 import { join } from "path";
 import * as ps from "./../ps/ps";
 
+import { filterAsync } from "../util";
+
 export interface IRegisterProgramParam {
   name: string;
   programPath: string;
@@ -31,6 +33,18 @@ export const runProgram = async (name: string) => {
     const exePath = join(program.location, program.executable);
     await ps.startProcess(exePath);
   }
+};
+
+export const runProgramBulk = async (names: string[]) => {
+  const programs = await getProgramsByName(names);
+  const programsNotRunning = await filterAsync(programs)(async program => {
+    const running = await ps.isProcessRunning(program.executable);
+    return !running;
+  });
+  const exePaths = programsNotRunning.map(program =>
+    join(program.location, program.executable)
+  );
+  await ps.startBulkProcesses(exePaths);
 };
 
 export const killProgram = async (name: string) => {

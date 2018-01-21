@@ -3,7 +3,7 @@ import { log, logPretty } from "./../index";
 
 import { flatten, isEmpty, uniq } from "lodash";
 import { getPresetsByName } from "../../modules/workenv/daos/preset.dao";
-import { runProgram } from "../../modules/workenv/programs";
+import { runProgram, runProgramBulk } from "../../modules/workenv/programs";
 
 export const StartCommand: CommandModule = {
   command: "start [names..]",
@@ -26,9 +26,6 @@ export const StartCommand: CommandModule = {
     });
 
     const programNames = uniq(flatten(presets.map(preset => preset.programs)));
-    const runProgramPromises = programNames.map(programName =>
-      runProgram(programName)
-    );
-    await Promise.all(runProgramPromises);
+    await runProgramBulk(programNames);
   }
 };
