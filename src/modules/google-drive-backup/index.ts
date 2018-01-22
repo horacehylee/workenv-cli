@@ -2,6 +2,7 @@ import { OAuth2Client } from "google-auth-library";
 import * as md5File from "md5-file/promise";
 import {
   deleteFile,
+  downloadFile,
   getFile,
   insertFile,
   listFiles,
@@ -52,8 +53,19 @@ export const backupFile = (auth: OAuth2Client) => (
 };
 
 export interface IRestoreFileParam {
-  uploadName: string;
+  uploadedName: string;
   filePath: string;
 }
 
-export const restoreFile = (param: IRestoreFileParam) => {};
+export const restoreFile = (auth: OAuth2Client) => async (
+  param: IRestoreFileParam
+) => {
+  const { filePath, uploadedName } = param;
+  const [file] = await listFiles(auth)({
+    q: `name='${uploadedName}'`
+  });
+  if (!file) {
+    throw new Error(`Backup(${uploadedName}) does not exists`);
+  }
+  await downloadFile(auth)(file.id)(filePath);
+};

@@ -35,6 +35,7 @@
     "inquirer": "4.0.1",
     "lodash": "4.17.4",
     "lowdb": "^1.0.0",
+    "make-dir": "^1.1.0",
     "md5-file": "^3.2.3",
     "mime-types": "^2.1.17",
     "node-emoji": "^1.8.1",
