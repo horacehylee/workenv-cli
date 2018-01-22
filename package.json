@@ -1,6 +1,6 @@
 {
   "name": "workenv-cli",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Cli tool for managing working environment programs",
   "scripts": {
     "test": "jest",
@@ -12,6 +12,10 @@
     "prepublish": "yarn build"
   },
   "homepage": "https://github.com/horacehylee/workenv-cli",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/horacehylee/workenv-cli.git"
+  },
   "bin": {
     "workenv": "./build/main.js"
   },
