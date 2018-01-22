@@ -122,6 +122,20 @@ It will close all programs listed for the preset.
 workenv exit <preset_name>
 ```
 
+### Backup and restore
+
+#### Backup
+
+```
+workenv backup
+```
+
+#### Restore
+
+```
+workenv restore
+```
+
 ## License
 
 MIT © [Horace Lee](https://github.com/horacehylee)
