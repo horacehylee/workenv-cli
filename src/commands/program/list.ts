@@ -1,7 +1,7 @@
 import { CommandModule } from "yargs";
 import { log, logPretty } from "./../index";
 
-import Table = require("cli-table2");
+import Table = require("cli-table3");
 import { isEmpty } from "lodash";
 import { join } from "path";
 
