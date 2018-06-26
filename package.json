@@ -60,7 +60,7 @@
     "@types/inquirer": "0.0.36",
     "@types/jest": "^22.0.1",
     "@types/lodash": "4.14.80",
-    "@types/lowdb": "^1.0.0",
+    "@types/lowdb": "1.0.0",
     "@types/mocha": "2.2.43",
     "@types/node": "8.5.2",
     "@types/node-emoji": "1.8.0",
